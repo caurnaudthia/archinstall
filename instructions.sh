@@ -23,7 +23,7 @@ swapon /dev/nvmeswap
 mount --mkdir /dev/nvmeboot /mnt/boot
 
 # MAIN INSTALLATION
-pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode efivar git go iwd fastfetch btrfs-progs timeshift vim networkmanager dhcpcd reflector zsh zsh-completions zsh-autosuggestions openssh man sudo tree 7zip
+pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode efivar git go iwd fastfetch btrfs-progs timeshift nvim networkmanager dhcpcd reflector zsh zsh-completions zsh-autosuggestions openssh man sudo tree 7zip
 
 # AUTOMOUNT
 # Fetch the disk mounting points as they are now ( we mounted everything before ) and generate instructions to let the system know how to mount the various disks automatically
@@ -38,19 +38,19 @@ hwclock --systohc
 # set localization
 localectl set-locale LANG=code.charset # e.g. LANG=en_US.UTF-8
 # set hostname
-vim /etc/hostname
+nvim /etc/hostname
 # set password
 passwd # (sec q: wisteri.art)
 # BOOTLOADER
 efivar --list ## ensure efi variables accesible
 bootctl install
-vim boot/loader/loader.conf
+nvim boot/loader/loader.conf
 # default   arch.conf
 # timeout  4
 # console-mode  max
 # editor  no
 lsblk -dno UUID /dev/nvmeroot #e.g. f161a87d-6393-4d94-860f-9fe64aea175e
-vim boot/loader/entries/arch.conf
+nvim boot/loader/entries/arch.conf
 # title  Arch Linux
 # linux  /vmlinuz-linux
 # initrd  /initramfs-linux.img
@@ -66,17 +66,17 @@ reboot
 #internet
 systemctl enable iwd.service systemd-resolved.service systemd-networkd.service NetworkManager.service
 
-# yay
-cd bin && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-
-# neovim
-yay -S neovim-git
+# paru
+cd /home/temp/ && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
 
 # desktop environment
-sudo pacman -S plasma-desktop plasma-nm kscreen spectacle clipboard dolphin plasma-pa pipewire-pulse qt6-tools fcitx-tools # chose pipeline and ffmpeg
+sudo pacman -S plasma-desktop kscreen qt6-tools # pipeline/ffmpeg choices
+sudo pacman -S plasma-nm bluedevil # networking
+sudo pacman -S plasma-pa pipewire-pulse # audio
+sudo pacman -S spectacle clipboard dolphin # fluff
 yay -S ksysguard6-git
 yay -s ksysguard-gpu
-sudo nvim /etc/pacman.conf
+sudoedit /etc/pacman.conf
 # find [multilib] and uncomment to:
 # [multilib]
 # Include = /etc/pacman.d/mirrorlist
