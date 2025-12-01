@@ -39,8 +39,15 @@ hwclock --systohc
 localectl set-locale LANG=code.charset # e.g. LANG=en_US.UTF-8
 # set hostname
 nvim /etc/hostname
-# set password
+# set root password
 passwd # (sec q: wisteri.art)
+# set primary user
+useradd -mG wheel username
+passwd username
+export EDITOR=nvim
+visudo
+# add the following lines to set neovim as primary editor for sudoedit:
+Defaults editor=/usr/bin/nvim
 # BOOTLOADER
 efivar --list ## ensure efi variables accesible
 bootctl install
@@ -70,12 +77,13 @@ systemctl enable iwd.service systemd-resolved.service systemd-networkd.service N
 cd /home/temp/ && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
 
 # desktop environment
-sudo pacman -S plasma-desktop kscreen qt6-tools # pipeline/ffmpeg choices
+sudo pacman -S plasma-desktop kscreen qt6-tools plasma-keyboard # pipeline/ffmpeg choices
 sudo pacman -S plasma-nm bluedevil # networking
 sudo pacman -S plasma-pa pipewire-pulse # audio
 sudo pacman -S spectacle clipboard dolphin # fluff
 yay -S ksysguard6-git
 yay -s ksysguard-gpu
+sudo systemctl enable bluetooth
 sudoedit /etc/pacman.conf
 # find [multilib] and uncomment to:
 # [multilib]
