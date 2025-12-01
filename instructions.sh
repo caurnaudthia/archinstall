@@ -73,7 +73,7 @@ cd bin && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 yay -S neovim-git
 
 # desktop environment
-sudo pacman -S plasma-desktop plasma-nm kscreen spectacle clipboard dolphin plasma-pa pipewire-pulse # chose pipeline and ffmpeg
+sudo pacman -S plasma-desktop plasma-nm kscreen spectacle clipboard dolphin plasma-pa pipewire-pulse qt6-tools # chose pipeline and ffmpeg
 yay -S ksysguard6-git
 yay -s ksysguard-gpu
 sudo nvim /etc/pacman.conf
