@@ -47,7 +47,7 @@ passwd username
 export EDITOR=nvim
 visudo
 # add the following lines to set neovim as primary editor for sudoedit:
-Defaults editor=/usr/bin/nvim
+# Defaults editor=/usr/bin/nvim
 # BOOTLOADER
 efivar --list ## ensure efi variables accesible
 bootctl install
@@ -73,7 +73,7 @@ reboot
 #internet
 systemctl enable iwd.service systemd-resolved.service systemd-networkd.service NetworkManager.service
 
-# paru
+# paru (aur helper)
 cd /home/temp/ && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
 
 # desktop environment
@@ -95,7 +95,7 @@ sudo pacman -Syu
 
 # important apps
 sudo pacman -S alacritty # tty emulator
-sudo pacman -S nodejs # dep for ffox
+sudo pacman -S firefox # dep for ffox
 paru -S parsec
 sudo pacman -S darktable
 sudo pacman -S krita
