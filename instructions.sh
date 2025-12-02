@@ -99,6 +99,7 @@ sudo pacman -S firefox # dep for ffox
 paru -S parsec
 sudo pacman -S darktable
 sudo pacman -S krita
+paru -S ttf-google-fonts.git
 
 
 # ensure the following autostart:
