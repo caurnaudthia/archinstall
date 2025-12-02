@@ -9,7 +9,8 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 let s:shortmess_save = &shortmess
 set shortmess+=aoO
-badd +24 instructions.sh
+badd +1 instructions.sh
+badd +0 ~/Workspace/archinstall/g14instructions.sh
 argglobal
 %argdel
 $argadd instructions.sh
@@ -51,8 +52,10 @@ keepjumps 24
 normal! 0
 wincmd w
 argglobal
-enew
-file oil:///home/wisteria/Workspace/archinstall/
+if bufexists(fnamemodify("~/Workspace/archinstall/g14instructions.sh", ":p")) | buffer ~/Workspace/archinstall/g14instructions.sh | else | edit ~/Workspace/archinstall/g14instructions.sh | endif
+if &buftype ==# 'terminal'
+  silent file ~/Workspace/archinstall/g14instructions.sh
+endif
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -61,7 +64,16 @@ setlocal foldlevel=0
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldenable
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 5 - ((4 * winheight(0) + 21) / 42)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 5
+normal! 0
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 67 + 67) / 135)
 exe 'vert 2resize ' . ((&columns * 67 + 67) / 135)
 tabnext 1
