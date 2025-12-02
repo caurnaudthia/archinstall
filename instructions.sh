@@ -81,21 +81,25 @@ sudo pacman -S plasma-desktop kscreen qt6-tools plasma-keyboard # pipeline/ffmpe
 sudo pacman -S plasma-nm bluedevil # networking
 sudo pacman -S plasma-pa pipewire-pulse # audio
 sudo pacman -S spectacle clipboard dolphin # fluff
-yay -S ksysguard6-git
-yay -s ksysguard-gpu
+paru -S ksysguard6-git
+paru -S ksysguard-gpu
 sudo systemctl enable bluetooth
 sudoedit /etc/pacman.conf
 # find [multilib] and uncomment to:
 # [multilib]
 # Include = /etc/pacman.d/mirrorlist
+# [heftig]
+# SigLevel = optional
+# Server = https://pkgbuild.com/~heftig/repo/$arch
 sudo pacman -Syu
 
 # important apps
 sudo pacman -S alacritty # tty emulator
 sudo pacman -S nodejs # dep for ffox
-yay -S firefox-nightly parsec
+paru -S parsec
 sudo pacman -S darktable
 sudo pacman -S krita
+
 
 # ensure the following autostart:
 # pipewire-pulse
