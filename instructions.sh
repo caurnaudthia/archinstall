@@ -100,7 +100,7 @@ paru -S parsec
 sudo pacman -S darktable
 sudo pacman -S krita
 paru -S ttf-google-fonts.git
-sudo pacman -S wine # for running programs such as nx studio
+sudo pacman -S wine-staging wine-mono # for running programs such as nx studio
 
 
 # ensure the following autostart:
