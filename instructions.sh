@@ -102,7 +102,7 @@ sudo pacman -S krita
 paru -S ttf-google-fonts.git
 sudo pacman -S wine-staging wine-mono # for running programs such as nx studio
 
-
+paru -S anki
 # ensure the following autostart:
 # pipewire-pulse
 # rog-control-center
