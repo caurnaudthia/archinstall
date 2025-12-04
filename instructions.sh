@@ -102,7 +102,7 @@ sudo pacman -S krita
 paru -S ttf-google-fonts.git
 sudo pacman -S wine-staging wine-mono # for running programs such as nx studio
 sudo pacman -S kalarm
-paru -S deadbeef-git # for music
+paru -S deadbeef # for music
 
 paru -S anki
 # ensure the following autostart:
