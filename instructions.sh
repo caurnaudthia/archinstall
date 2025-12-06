@@ -80,7 +80,7 @@ cd /home/temp/ && git clone https://aur.archlinux.org/paru.git && cd paru && mak
 sudo pacman -S plasma-desktop kscreen qt6-tools plasma-keyboard # pipeline/ffmpeg choices
 sudo pacman -S plasma-nm bluedevil # networking
 sudo pacman -S plasma-pa pipewire-pulse # audio
-sudo pacman -S spectacle clipboard dolphin # fluff
+sudo pacman -S spectacle clipboard dolphin gwenview # fluff
 paru -S ksysguard6-git
 paru -S ksysguard-gpu
 sudo systemctl enable bluetooth
