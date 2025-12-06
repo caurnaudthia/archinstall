@@ -23,7 +23,7 @@ swapon /dev/nvmeswap
 mount --mkdir /dev/nvmeboot /mnt/boot
 
 # MAIN INSTALLATION
-pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode efivar git go iwd fastfetch btrfs-progs timeshift nvim networkmanager dhcpcd reflector zsh zsh-completions zsh-autosuggestions openssh man sudo tree 7zip
+pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode efivar git go iwd fastfetch btrfs-progs timeshift nvim networkmanager dhcpcd reflector zsh zsh-completions zsh-autosuggestions openssh man sudo tree 7zip exfatprogs
 
 # AUTOMOUNT
 # Fetch the disk mounting points as they are now ( we mounted everything before ) and generate instructions to let the system know how to mount the various disks automatically
@@ -103,6 +103,8 @@ paru -S ttf-google-fonts.git
 sudo pacman -S wine-staging wine-mono # for running programs such as nx studio
 sudo pacman -S kalarm
 paru -S deadbeef # for music
+sudo pacman -S hugin
+sudo pacman -S perl-image-exiftool
 
 paru -S anki
 # ensure the following autostart:
