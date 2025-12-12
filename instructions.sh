@@ -104,6 +104,7 @@ sudo pacman -S wine-staging wine-mono # for running programs such as nx studio
 paru -S deadbeef # for music
 sudo pacman -S hugin
 sudo pacman -S perl-image-exiftool
+sudo pacman -S libreoffice
 
 paru -S anki
 # ensure the following autostart:
