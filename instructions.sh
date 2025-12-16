@@ -105,6 +105,7 @@ paru -S deadbeef # for music
 sudo pacman -S hugin
 sudo pacman -S perl-image-exiftool
 sudo pacman -S libreoffice
+sudo pacman -S pdfarranger
 
 paru -S anki
 # ensure the following autostart:
