@@ -16,4 +16,7 @@ sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-res
 sudo systemctl enable --now nvidia-powerd
 # kernel update
 sudo pacman -Sy linux-g14 linux-g14-headers
+sudo pacman -S mesa vulkan-radeon
 # IN ROOT ENVIRONMENT, set up a new entry for the bootloader
+#
+rog-control-center

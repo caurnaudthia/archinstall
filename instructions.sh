@@ -106,8 +106,8 @@ sudo pacman -S hugin
 sudo pacman -S perl-image-exiftool
 sudo pacman -S libreoffice
 sudo pacman -S pdfarranger
+sudo pacman -S openssl-1.1
 
 paru -S anki
 # ensure the following autostart:
 # pipewire-pulse
-# rog-control-center
